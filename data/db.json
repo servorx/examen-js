@@ -1,0 +1,19 @@
+{
+    "pendientes":[
+        {
+            "Título":"",
+            "Descripcion":"",
+            "Imagen":"./assets"
+        }
+    ],
+    "in-progress":[
+        {
+            
+        }
+    ],
+    "completadas":[
+        {
+            
+        }
+    ],
+}
