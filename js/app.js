@@ -7,40 +7,39 @@ class Table extends HTMLElement {
         :host {
           display: block;
         }
-        /* Estilos del componente */
+
+        .tarea{
+            background: #111;
+        }
+        h3{
+
+        }
+        p{
+
+        }
       </style>
-      <div>
-        <!-- Contenido del componente -->
+      <div class="tarea">
+        <h3 class="title" id="title">${title}<h3>
+        <p class="content" id="content">${content}</p>
+        <span class="dateStart" id="dateStart">${dateStart}</span>
+        <span class="dateFinish" id="dateStart">${dateFinish}</span>
       </div>
     `;
   }
 
-  // Observar cambios en estos atributos
-  static get observedAttributes() {
-    return ['attr1', 'attr2'];
-  }
-
   // Se ejecuta cuando se inserta el componente en el DOM
   connectedCallback() {
-    console.log('Elemento añadido al DOM');
-  }
+    fetch('http://localhost:3000/pendientes')
 
-  // Se ejecuta cuando se elimina el componente del DOM
-  disconnectedCallback() {
-    console.log('Elemento eliminado del DOM');
-  }
-
-  // Se ejecuta cuando un atributo observado cambia
-  attributeChangedCallback(name, oldValue, newValue) {
-    console.log(`Atributo name cambiado de oldValue a newValue`);
-  }
-
-  // Se ejecuta cuando el componente se mueve a un nuevo documento
-  adoptedCallback() {
-    console.log('Elemento movido a un nuevo documento');
+    => {
+        this.dataset = d
+    }
+    title = this.shadowRoot.getElementById('title') = d.title || "titulo no encontrado"
+    content = this.shadowRoot.getElementById('content') d.content || "titulo no encontrado"
+    title = this.shadowRoot.getElementById('title') = d.title || "titulo no encontrado"
+    title = this.shadowRoot.getElementById('title') = d.title || "titulo no encontrado"
   }
 }
 
-// Definir el elemento personalizado
 customElements.define('table', Table);
 
